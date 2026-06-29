@@ -1,0 +1,476 @@
+/* ====================================================
+   KeyNova — Premium Elegant Edition
+   Hitam pekat + aksen emas/champagne, glassmorphism halus
+   ==================================================== */
+
+/* ---------- Variabel warna & dasar ---------- */
+:root {
+  --bg:        #0a0a0c;   /* hitam pekat elegan */
+  --bg-soft:   #111114;
+  --surface:   rgba(255, 255, 255, 0.035);
+  --border:    rgba(212, 175, 55, 0.18);   /* border tipis keemasan */
+  --text:      #f2efe9;
+  --text-dim:  #a9a39a;
+
+  /* Aksen premium */
+  --gold:      #d4af37;   /* emas */
+  --champagne: #e8d6a8;   /* champagne terang */
+  --bronze:    #b08d57;   /* perunggu lembut */
+
+  --radius: 18px;
+  --maxw: 1140px;
+  --transition: 0.35s ease;
+}
+
+/* ---------- Reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Glow latar belakang halus & hangat */
+  background-image:
+    radial-gradient(circle at 15% 8%, rgba(212,175,55,0.10), transparent 42%),
+    radial-gradient(circle at 85% 18%, rgba(232,214,168,0.07), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgba(176,141,87,0.08), transparent 48%);
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+/* Teks gradient emas */
+.gradient-text {
+  background: linear-gradient(90deg, var(--champagne), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 50px;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--gold), var(--champagne));
+  color: #1a1408;
+  box-shadow: 0 6px 20px rgba(212,175,55,0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.45);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--champagne);
+  box-shadow: 0 0 16px rgba(212,175,55,0.18);
+  transform: translateY(-2px);
+}
+
+.btn-small { padding: 9px 18px; font-size: 0.85rem; }
+.btn-lg { padding: 15px 40px; font-size: 1.05rem; }
+
+/* ====================================================
+   NAVBAR — sticky + glassmorphism halus
+   ==================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 12, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+.navbar.scrolled { background: rgba(10, 10, 12, 0.9); }
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.brand {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 1.5px;
+}
+.brand-mark { color: var(--gold); margin-right: 4px; }
+
+.nav-links { display: flex; gap: 32px; }
+.nav-link {
+  color: var(--text-dim);
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--champagne));
+  transition: width var(--transition);
+}
+.nav-link:hover { color: var(--champagne); }
+.nav-link:hover::after { width: 100%; }
+
+.nav-cta { margin-left: 10px; }
+
+/* Tombol hamburger (mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav-toggle span {
+  width: 24px; height: 2px;
+  background: var(--champagne);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ====================================================
+   HERO
+   ==================================================== */
+.hero { padding: 76px 0 96px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 54px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--champagne);
+  backdrop-filter: blur(6px);
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin-bottom: 30px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Kartu visual hero */
+.hero-visual { display: flex; justify-content: center; }
+.hero-card {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  padding: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212,175,55,0.12);
+  animation: float 5.5s ease-in-out infinite;
+}
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Floating label elegan */
+.float-label {
+  position: absolute;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 50px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  letter-spacing: 0.4px;
+}
+.float-top {
+  top: 22px; left: -10px;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  box-shadow: 0 6px 18px rgba(212,175,55,0.25);
+}
+.float-bottom {
+  bottom: 22px; right: -10px;
+  background: rgba(232,214,168,0.12);
+  border: 1px solid var(--champagne);
+  color: var(--champagne);
+  box-shadow: 0 6px 18px rgba(232,214,168,0.2);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* ====================================================
+   SECTION umum
+   ==================================================== */
+.section { padding: 84px 0; }
+.section-alt { background: var(--bg-soft); }
+
+.section-head { text-align: center; margin-bottom: 52px; }
+.section-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.section-desc { color: var(--text-dim); max-width: 540px; margin: 0 auto; }
+
+/* ====================================================
+   PRODUK
+   ==================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 44px rgba(0,0,0,0.45), 0 0 22px rgba(212,175,55,0.12);
+}
+
+.product-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.product-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.product-card:hover .product-media img { transform: scale(1.07); }
+
+/* Tag kecil — elegan keemasan */
+.tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 50px;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+  letter-spacing: 0.4px;
+}
+.tag-limited { background: rgba(176,141,87,0.18); color: var(--bronze); border: 1px solid var(--bronze); }
+.tag-best    { background: rgba(212,175,55,0.18); color: var(--gold); border: 1px solid var(--gold); }
+.tag-custom  { background: rgba(232,214,168,0.15); color: var(--champagne); border: 1px solid var(--champagne); }
+
+/* Placeholder CSS untuk produk custom (tanpa file gambar) */
+.product-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background:
+    linear-gradient(135deg, rgba(212,175,55,0.18), rgba(232,214,168,0.06)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0 10px, transparent 10px 20px);
+  color: var(--champagne);
+}
+.placeholder-icon { font-size: 2.4rem; font-weight: 700; }
+.placeholder-text { font-family: "Orbitron", sans-serif; font-size: 0.9rem; letter-spacing: 1px; }
+
+.product-body { padding: 22px; }
+.product-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+.product-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 18px; min-height: 40px; }
+
+.product-foot { display: flex; align-items: center; justify-content: space-between; }
+.price {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--gold);
+}
+
+/* ====================================================
+   KEUNGGULAN
+   ==================================================== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.feature-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.feature-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+.feature-num {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,175,55,0.45);
+  position: absolute;
+  top: 14px; right: 20px;
+  opacity: 0.65;
+}
+.feature-title { font-size: 1.25rem; font-weight: 600; margin-bottom: 10px; }
+.feature-desc { color: var(--text-dim); font-size: 0.92rem; }
+
+/* ====================================================
+   CARA ORDER
+   ==================================================== */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-bottom: 42px;
+}
+.step-card {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 24px;
+  backdrop-filter: blur(10px);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.step-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #1a1408;
+  background: linear-gradient(90deg, var(--gold), var(--champagne));
+  box-shadow: 0 6px 18px rgba(212,175,55,0.3);
+}
+.step-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; }
+.step-desc { color: var(--text-dim); font-size: 0.9rem; }
+
+.order-cta { text-align: center; }
+
+/* ====================================================
+   FOOTER
+   ==================================================== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  background: var(--bg-soft);
+}
+
+/* ====================================================
+   RESPONSIVE — Tablet
+   ==================================================== */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { order: -1; }
+  .hero-text { text-align: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+
+  .product-grid,
+  .feature-grid,
+  .step-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ====================================================
+   RESPONSIVE — Mobile
+   ==================================================== */
+@media (max-width: 640px) {
+  .nav-links {
+    position: fixed;
+    top: 72px; right: 0;
+    flex-direction: column;
+    gap: 0;
+    width: 70%;
+    max-width: 280px;
+    height: calc(100vh - 72px);
+    background: rgba(10, 10, 12, 0.96);
+    backdrop-filter: blur(16px);
+    padding: 24px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    border-left: 1px solid var(--border);
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-link { padding: 14px 0; border-bottom: 1px solid var(--border); }
+
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  .product-grid,
+  .feature-grid,
+  .step-grid { grid-template-columns: 1fr; }
+
+  .section { padding: 62px 0; }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "keychain-store",
+  "version": "1.0.0",
+  "description": "Landing page penjualan gantungan kunci futuristik",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["landing-page", "keychain", "static-site", "vercel"],
+  "author": "KeyNova",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
