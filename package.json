@@ -1,13 +1,18 @@
 {
-  "name": "keychain-store",
+  "name": "ganciku-id",
   "version": "1.0.0",
-  "description": "Landing page penjualan gantungan kunci futuristik",
+  "description": "Landing page Ganciku.id untuk penjualan gantungan kunci custom futuristik",
   "scripts": {
     "start": "npx serve .",
     "build": "echo 'Static site - no build needed'"
   },
-  "keywords": ["landing-page", "keychain", "static-site", "vercel"],
-  "author": "KeyNova",
+  "keywords": [
+    "landing-page",
+    "keychain",
+    "static-site",
+    "vercel"
+  ],
+  "author": "Ganciku.id",
   "license": "MIT",
   "devDependencies": {
     "serve": "^14.2.1"
